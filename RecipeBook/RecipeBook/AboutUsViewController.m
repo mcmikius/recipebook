@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource: @"" ofType: nil]];
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource: @"about.html" ofType: nil]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [wkWebView loadRequest:request];
 }
