@@ -14,17 +14,34 @@
 @end
 
 @implementation ViewController {
-    NSArray * recipes;
+    NSArray *recipes;
+    NSArray *searchResults;
 }
 @synthesize tableView;
+@synthesize searchBar;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     recipes = [NSArray arrayWithObjects:@"French meat", @"Salmon steak", @"Napoleon cake", @"Vegateble soup", nil];
     
 }
 
+- (void)filterContentForSearchText:(NSString *)searchText scope: (NSString*)scope {
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF contains[cd] %@", searchText];
+    searchResults = [recipes filteredArrayUsingPredicate:resultPredicate];
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString: (NSString *)searchString {
+    [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex: [self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    return YES;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return recipes.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [searchResults count];
+    } else {
+        return recipes.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -32,18 +49,36 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdetifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdetifier];
-        
     }
-    cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:@"meal"];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
+        cell.imageView.image = [UIImage imageNamed:@"meal"];
+    } else {
+        cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
+        cell.imageView.image = [UIImage imageNamed:@"meal"];
+    }
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        [self performSegueWithIdentifier:@"showRecipeDetail" sender:self];
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
         RecipeDetailViewController *recipeDetailViewController = segue.destinationViewController;
-        recipeDetailViewController.recipeName = [recipes objectAtIndex:indexPath.row];
+        NSIndexPath *indexPath = nil;
+        if ([self.searchDisplayController isActive]) {
+            indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            recipeDetailViewController.recipeName = [searchResults objectAtIndex:indexPath.row];
+        } else {
+            indexPath = [self.tableView indexPathForSelectedRow];
+            recipeDetailViewController.recipeName = [searchResults objectAtIndex:indexPath.row];
+        }
+        
     }
 }
 
