@@ -52,10 +52,26 @@
     }
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
-        cell.imageView.image = [UIImage imageNamed:@"meal"];
+        if (indexPath.row == 0) {
+            cell.imageView.image = [UIImage imageNamed:@"meal-prep"];
+        } else if (indexPath.row == 1) {
+            cell.imageView.image = [UIImage imageNamed:@"breakfast"];
+        } else if (indexPath.row == 2) {
+            cell.imageView.image = [UIImage imageNamed:@"meal"];
+        } else if (indexPath.row == 3) {
+            cell.imageView.image = [UIImage imageNamed:@"veganpowerbowls"];
+        }
     } else {
         cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
-        cell.imageView.image = [UIImage imageNamed:@"meal"];
+        if (indexPath.row == 0) {
+            cell.imageView.image = [UIImage imageNamed:@"meal-prep"];
+        } else if (indexPath.row == 1) {
+            cell.imageView.image = [UIImage imageNamed:@"breakfast"];
+        } else if (indexPath.row == 2) {
+            cell.imageView.image = [UIImage imageNamed:@"meal"];
+        } else if (indexPath.row == 3) {
+            cell.imageView.image = [UIImage imageNamed:@"veganpowerbowls"];
+        }
     }
     return cell;
 }
@@ -74,9 +90,11 @@
         if ([self.searchDisplayController isActive]) {
             indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
             recipeDetailViewController.recipeName = [searchResults objectAtIndex:indexPath.row];
+            recipeDetailViewController.index = indexPath.row;
         } else {
             indexPath = [self.tableView indexPathForSelectedRow];
-            recipeDetailViewController.recipeName = [searchResults objectAtIndex:indexPath.row];
+            recipeDetailViewController.recipeName = [recipes objectAtIndex:indexPath.row];
+            recipeDetailViewController.index = indexPath.row;
         }
         
     }
