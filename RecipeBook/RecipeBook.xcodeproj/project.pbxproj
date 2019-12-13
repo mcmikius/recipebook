@@ -16,6 +16,8 @@
 		F350EC8123A384E70011BAF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F350EC8023A384E70011BAF4 /* main.m */; };
 		F350EC8923A38F9E0011BAF4 /* RecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F350EC8823A38F9E0011BAF4 /* RecipeDetailViewController.m */; };
 		F350EC8C23A3933E0011BAF4 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F350EC8B23A3933E0011BAF4 /* AboutUsViewController.m */; };
+		F350EC8E23A394D30011BAF4 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = F350EC8D23A394D30011BAF4 /* about.html */; };
+		F350EC9023A3956D0011BAF4 /* veganpowerbowls-2157-5-683x1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F350EC8F23A3956D0011BAF4 /* veganpowerbowls-2157-5-683x1024.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		F350EC8823A38F9E0011BAF4 /* RecipeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailViewController.m; sourceTree = "<group>"; };
 		F350EC8A23A3933E0011BAF4 /* AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		F350EC8B23A3933E0011BAF4 /* AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		F350EC8D23A394D30011BAF4 /* about.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
+		F350EC8F23A3956D0011BAF4 /* veganpowerbowls-2157-5-683x1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "veganpowerbowls-2157-5-683x1024.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 				F350EC8B23A3933E0011BAF4 /* AboutUsViewController.m */,
 				F350EC7723A384E50011BAF4 /* Main.storyboard */,
 				F350EC7A23A384E70011BAF4 /* Assets.xcassets */,
+				F350EC8D23A394D30011BAF4 /* about.html */,
+				F350EC8F23A3956D0011BAF4 /* veganpowerbowls-2157-5-683x1024.jpg */,
 				F350EC7C23A384E70011BAF4 /* LaunchScreen.storyboard */,
 				F350EC7F23A384E70011BAF4 /* Info.plist */,
 				F350EC8023A384E70011BAF4 /* main.m */,
@@ -143,8 +149,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F350EC8E23A394D30011BAF4 /* about.html in Resources */,
 				F350EC7E23A384E70011BAF4 /* LaunchScreen.storyboard in Resources */,
 				F350EC7B23A384E70011BAF4 /* Assets.xcassets in Resources */,
+				F350EC9023A3956D0011BAF4 /* veganpowerbowls-2157-5-683x1024.jpg in Resources */,
 				F350EC7923A384E50011BAF4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

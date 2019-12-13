@@ -14,14 +14,14 @@
 
 @implementation AboutUsViewController
 
-@synthesize webView;
+@synthesize wkWebView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource: @"" ofType: nil]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [webView loadRequest:request];
+    [wkWebView loadRequest:request];
 }
 
 /*

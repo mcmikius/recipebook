@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AboutUsViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+@property (weak, nonatomic) IBOutlet WKWebView *wkWebView;
+
 
 @end
 

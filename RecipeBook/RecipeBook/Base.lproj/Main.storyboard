@@ -119,23 +119,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fug-Wx-9N2">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaG-Jt-zTH">
                                 <rect key="frame" x="0.0" y="20" width="375" height="627"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="fug-Wx-9N2" firstAttribute="top" secondItem="Mpn-1C-RDF" secondAttribute="top" constant="20" symbolic="YES" id="0xf-Dw-fMp"/>
-                            <constraint firstAttribute="bottom" secondItem="fug-Wx-9N2" secondAttribute="bottom" constant="20" symbolic="YES" id="Kil-2g-Nd6"/>
-                            <constraint firstItem="fug-Wx-9N2" firstAttribute="trailing" secondItem="UoL-gF-kLY" secondAttribute="trailing" id="OmE-hC-hfc"/>
-                            <constraint firstItem="fug-Wx-9N2" firstAttribute="leading" secondItem="UoL-gF-kLY" secondAttribute="leading" id="wtT-TG-Ubx"/>
+                            <constraint firstItem="iaG-Jt-zTH" firstAttribute="top" secondItem="Mpn-1C-RDF" secondAttribute="top" constant="20" symbolic="YES" id="81Y-Qc-dPH"/>
+                            <constraint firstItem="iaG-Jt-zTH" firstAttribute="trailing" secondItem="UoL-gF-kLY" secondAttribute="trailing" id="TBR-JJ-vcv"/>
+                            <constraint firstAttribute="bottom" secondItem="iaG-Jt-zTH" secondAttribute="bottom" constant="20" symbolic="YES" id="USo-yh-ZeW"/>
+                            <constraint firstItem="iaG-Jt-zTH" firstAttribute="leading" secondItem="UoL-gF-kLY" secondAttribute="leading" id="c57-1x-0bw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UoL-gF-kLY"/>
                     </view>
                     <navigationItem key="navigationItem" title="About us" id="DCs-Js-yMA"/>
                     <connections>
-                        <outlet property="webView" destination="fug-Wx-9N2" id="1Xl-aw-dxK"/>
+                        <outlet property="wkWebView" destination="iaG-Jt-zTH" id="LrW-gc-XC5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PP1-OQ-gAf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
