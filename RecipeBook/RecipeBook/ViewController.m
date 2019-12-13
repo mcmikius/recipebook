@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "RecipeDetailViewController.h"
 
 @interface ViewController ()
 
@@ -15,7 +16,7 @@
 @implementation ViewController {
     NSArray * recipes;
 }
-
+@synthesize tableView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     recipes = [NSArray arrayWithObjects:@"French meat", @"Salmon steak", @"Napoleon cake", @"Vegateble soup", nil];
@@ -36,6 +37,14 @@
     cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
     cell.imageView.image = [UIImage imageNamed:@"meal"];
     return cell;
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        RecipeDetailViewController *recipeDetailViewController = segue.destinationViewController;
+        recipeDetailViewController.recipeName = [recipes objectAtIndex:indexPath.row];
+    }
 }
 
 
